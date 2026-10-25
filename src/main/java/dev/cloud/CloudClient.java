@@ -20,6 +20,7 @@ import net.minecraft.util.Identifier;
 public class CloudClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        dev.cloud.update.UpdateService.start();
         CloudPaths.ensureDirs();
         ProfileStore.load();
         Config.load();

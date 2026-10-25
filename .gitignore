@@ -6,3 +6,5 @@ dist/
 *.key
 .env
 local.properties
+
+.gradle-dist/

@@ -99,7 +99,7 @@ public final class R {
         if (strength <= 0.01f || size <= 0) return;
         float base = (col >>> 24) / 255f * strength;
         if (base < 0.01f) return;
-        int steps = Math.min(14, Math.max(4, Math.round(size * K)));
+        int steps = Math.min(5, Math.max(3, Math.round(size / 2f))); // capped: each step is many fills, this was the main FPS cost
         float unit = (float) size / steps;
         float norm = (float) size / steps; // keep total intensity independent of resolution
         int rgb = col & 0xFFFFFF;

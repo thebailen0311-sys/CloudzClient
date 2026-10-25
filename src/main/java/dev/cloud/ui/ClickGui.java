@@ -79,7 +79,8 @@ public class ClickGui extends Screen {
     public void renderBackground(DrawContext ctx, int mx, int my, float delta) {
         ClickGuiModule g = Modules.CLICKGUI;
         if (g.blur.get() && openT > 0.2f) {
-            client.options.getMenuBackgroundBlurriness().setValue(g.blurStrength.getInt());
+            int want = g.blurStrength.getInt();
+            if (client.options.getMenuBackgroundBlurriness().getValue() != want) client.options.getMenuBackgroundBlurriness().setValue(want);
             ctx.applyBlur();
         }
     }
@@ -143,6 +144,7 @@ public class ClickGui extends Screen {
 
         sidebar(ctx, th, ac, px + 8, py + 8, 120, ph - 16, dt);
         content(ctx, th, ac, px + 138, py, pw - 146, ph, dt);
+        T.draw(ctx, "sigma rizz lvl 9000 fr fr", px + pw - 128, py + 6, th.sub(), 0.6f);
         dropdownLayer(ctx, th, ac, dt);
 
         if (g.sweep.get()) {
@@ -334,7 +336,7 @@ public class ClickGui extends Screen {
         if (!visible) return total;
 
         int bg = R.mix(th.card(), th.cardHover(), mod.hoverAnim);
-        if (Modules.CLICKGUI.uiGlow.get() && t > 0.01f) R.glow(ctx, x, y, w, total, 9, ac, 6, 0.3f * t);
+        if (Modules.CLICKGUI.uiGlow.get() && mod.hoverAnim > 0.01f && t > 0.01f) R.glow(ctx, x, y, w, total, 9, ac, 6, 0.3f * t * mod.hoverAnim);
         R.bordered(ctx, x, y, w, total, 9, bg, R.mix(th.line(), R.withAlpha(ac, 0.45f), t));
         float hl = Math.max(t, mod.hoverAnim);
         if (hl > 0.02f) {
