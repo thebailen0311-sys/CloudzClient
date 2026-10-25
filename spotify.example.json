@@ -1,0 +1,5 @@
+{
+  "clientId": "PASTE_CLIENT_ID",
+  "clientSecret": "PASTE_CLIENT_SECRET",
+  "refreshToken": "PASTE_REFRESH_TOKEN"
+}

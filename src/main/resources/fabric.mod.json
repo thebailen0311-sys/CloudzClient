@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "cloudclient",
+  "version": "${version}",
+  "name": "Cloud Client",
+  "description": "Cloud Client 1.2 - monochrome click GUI, animated array list, glow ESP, screen ambience and a Spotify now-playing card with karaoke lyrics.",
+  "authors": [
+    "you"
+  ],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "dev.cloud.CloudClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.18.1",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "mixins": [
+    "cloudclient.mixins.json"
+  ]
+}
