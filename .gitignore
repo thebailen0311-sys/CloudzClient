@@ -1,0 +1,8 @@
+build/
+.gradle/
+run/
+dist/
+*.pem
+*.key
+.env
+local.properties
